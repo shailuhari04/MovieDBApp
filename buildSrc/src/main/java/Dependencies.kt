@@ -1,4 +1,3 @@
-
 object Versions {
     const val coroutines = "1.3.8"
     const val appcompat = "1.2.0"
@@ -16,6 +15,7 @@ object Versions {
     const val kotest = "4.1.2"
     const val androidxTest = "1.2.0"
     const val robolectric = "4.3.1"
+    const val paging = "2.1.2"
 }
 
 object BuildVersions {
@@ -50,6 +50,7 @@ object Libs {
     const val koinViewmodel = "org.koin:koin-androidx-viewmodel:${Versions.koin}"
     const val glide = "com.github.bumptech.glide:glide:${Versions.glide}"
     const val glideCompiler = "com.github.bumptech.glide:compiler:${Versions.glide}"
+    const val paging = "androidx.paging:paging-runtime-ktx:${Versions.paging}"
 }
 
 object TestLibs {

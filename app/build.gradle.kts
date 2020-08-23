@@ -26,7 +26,7 @@ android {
         }
     }
     buildFeatures {
-        viewBinding = true
+        dataBinding = true
     }
     testOptions {
         unitTests.isIncludeAndroidResources = true
@@ -73,6 +73,9 @@ dependencies {
     implementation(Libs.retrofit)
     implementation(Libs.retrofitConverterMoshi)
     implementation(Libs.loggingInterceptor)
+
+    //Paging
+    implementation(Libs.paging)
 
     // Glide
     implementation(Libs.glide)
