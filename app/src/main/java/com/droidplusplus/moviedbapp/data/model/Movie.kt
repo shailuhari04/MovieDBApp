@@ -20,9 +20,9 @@ data class Movie(
     val vote_count: Int? = null,
 ) : Parcelable {
 
-    fun getBackdropPath() = takeIf { backdrop_path.isNullOrBlank() }?.let { null }
+    fun getFullBackdropPath() = takeIf { backdrop_path.isNullOrBlank() }?.let { null }
         ?: BuildConfig.SMALL_IMAGE_URL + backdrop_path
 
-    fun getPosterPath() = takeIf { poster_path.isNullOrBlank() }?.let { null }
+    fun getFullPosterPath() = takeIf { poster_path.isNullOrBlank() }?.let { null }
         ?: BuildConfig.SMALL_IMAGE_URL + poster_path
 }
