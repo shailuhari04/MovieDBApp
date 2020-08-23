@@ -47,7 +47,7 @@ object Libs {
     const val retrofitConverterMoshi = "com.squareup.retrofit2:converter-moshi:${Versions.retrofit}"
     const val loggingInterceptor = "com.squareup.okhttp3:logging-interceptor:${Versions.okhttp}"
     const val koinAndroid = "org.koin:koin-android:${Versions.koin}"
-    const val koinViewmodel = "org.koin:koin-android-viewmodel:${Versions.koin}"
+    const val koinViewmodel = "org.koin:koin-androidx-viewmodel:${Versions.koin}"
     const val glide = "com.github.bumptech.glide:glide:${Versions.glide}"
     const val glideCompiler = "com.github.bumptech.glide:compiler:${Versions.glide}"
 }
