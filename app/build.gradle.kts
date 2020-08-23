@@ -17,12 +17,26 @@ android {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
-        getByName("release") {
-            isMinifyEnabled = false
+        getByName(AppBuildType.release) {
+            isDebuggable = false
+            isMinifyEnabled = true
+            isShrinkResources = true
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+        }
+
+        create(AppBuildType.staging) {
+            isDebuggable = true
+            isMinifyEnabled = true
+            isShrinkResources = true
+        }
+
+        getByName(AppBuildType.debug) {
+            isDebuggable = true
+            isMinifyEnabled = false
+            isShrinkResources = false
         }
     }
     buildFeatures {
@@ -38,6 +52,31 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+    productFlavors {
+        create(AppFlavors.dev) {
+            versionCode = App.versionCode
+            versionName = App.versionName
+            applicationIdSuffix = App.suffixDev
+            resValue("string", "app_name", "MovieDB Dev App")
+            buildConfigField("boolean", "MOCK_DATA", "false")
+        }
+        create(AppFlavors.mock) {
+            versionCode = App.versionCode
+            versionName = App.versionName
+            applicationIdSuffix = App.suffixMock
+            resValue("string", "app_name", "MovieDB Mock App")
+            buildConfigField("boolean", "MOCK_DATA", "true")
+        }
+        create(AppFlavors.prod) {
+            versionCode = App.versionCode
+            versionName = App.versionName
+            resValue("string", "app_name", "MovieDB App")
+            buildConfigField("boolean", "MOCK_DATA", "false")
+        }
+    }
+
+    flavorDimensions("default")
+
     applicationVariants.all {
         buildConfigField("String", "API_KEY", "\"2cdf3a5c7cf412421485f89ace91e373\"")
         buildConfigField("String", "BASE_URL", "\"https://api.themoviedb.org/\"")
