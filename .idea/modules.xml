@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/MovieDBApp.iml" filepath="$PROJECT_DIR$/.idea/MovieDBApp.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/MovieDBApp.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/MovieDBApp.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/MovieDBApp.buildSrc.iml" filepath="$PROJECT_DIR$/.idea/modules/MovieDBApp.buildSrc.iml" />
     </modules>
   </component>
 </project>
