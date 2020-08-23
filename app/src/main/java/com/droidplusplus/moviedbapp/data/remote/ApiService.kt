@@ -38,6 +38,9 @@ interface ApiService {
 
 object ApiParams {
     const val PAGE = "page"
+}
+
+object APIClient{
     const val TIMEOUT = 30
 
     fun createOkHttpCache(context: Context): Cache =
