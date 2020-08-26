@@ -30,4 +30,4 @@ Additional
 Contact
 
 - [LinkedIn](https://www.linkedin.com/in/shailendra-harinkhede-0a3536a1/)
-- [Twitter] (https://twitter.com/3Shail/)
+- [Twitter](https://twitter.com/3Shail/)
