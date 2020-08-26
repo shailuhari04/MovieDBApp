@@ -5,7 +5,7 @@ This project use Movie Db Api from the [MovieDB](https://developers.themoviedb.o
 This particular app uses the Popular movie with the details of the movie on click.
 
 ## Preview
-![](https://giphy.com/gifs/dyuxuDbvRQtiDnOGdI)
+![](https://imgur.com/vf2ChCB)
 
 ### This App build.gradle Dependency is maintained by using Kotlin and buildSrc for AutoComplete feature
 
