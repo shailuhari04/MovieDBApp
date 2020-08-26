@@ -1,7 +1,7 @@
 # MovieDBApp
 MovieDB Android App (Kotlin, JetPack Components, Coroutine, MVVM, Glide, Retrofit)
 
-This project use Movie Db Api from the [THMDB](https://www.themoviedb.org/) which gives the access to the whole set of the different movies.
+This project use Movie Db Api from the [MovieDB](https://developers.themoviedb.org) which gives the access to the whole set of the different movies.
 This particular app uses the Popular movie with the details of the movie on click.
 
 ## Preview
