@@ -110,7 +110,8 @@ dependencies {
 
     // Retrofit
     implementation(Libs.retrofit)
-    implementation(Libs.retrofitConverterMoshi)
+    implementation(Libs.retrofitGson)
+    implementation(Libs.gson)
     implementation(Libs.loggingInterceptor)
 
     //Paging

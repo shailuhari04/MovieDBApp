@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="item"
+            type="com.droidplusplus.moviedbapp.data.model.Movie" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white">
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/posterCV"
+            android:layout_width="50dp"
+            android:layout_height="70dp"
+            android:layout_margin="5dp"
+            app:cardBackgroundColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/posterIV"
+                centerCrop="@{true}"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:imageUrl="@{ item.fullPosterPath }"
+                tools:src="@drawable/default_image_bg" />
+        </com.google.android.material.card.MaterialCardView>
+
+        <TextView
+            android:id="@+id/titleTV"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="@{ item.title }"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/posterCV"
+            app:layout_constraintEnd_toStartOf="@+id/arrowIV"
+            app:layout_constraintStart_toEndOf="@+id/posterCV"
+            app:layout_constraintTop_toTopOf="@+id/posterCV"
+            tools:text="Title" />
+
+        <ImageView
+            android:id="@+id/arrowIV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:rotation="-90"
+            android:src="@drawable/ic_baseline_24"
+            app:layout_constraintBottom_toBottomOf="@+id/titleTV"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/titleTV" />
+
+        <View
+            android:id="@+id/view"
+            android:layout_width="match_parent"
+            android:layout_height="0.1dp"
+            android:layout_marginTop="5dp"
+            android:background="@color/black"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/posterCV" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

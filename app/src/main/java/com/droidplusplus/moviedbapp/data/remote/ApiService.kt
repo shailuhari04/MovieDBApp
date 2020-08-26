@@ -2,7 +2,7 @@ package com.droidplusplus.moviedbapp.data.remote
 
 import android.content.Context
 import com.droidplusplus.moviedbapp.BuildConfig
-import com.droidplusplus.moviedbapp.data.model.*
+import com.droidplusplus.moviedbapp.data.model.Movie
 import com.droidplusplus.moviedbapp.data.model.response.MovieCreditResponse
 import com.droidplusplus.moviedbapp.data.model.response.MovieListResponse
 import com.droidplusplus.moviedbapp.data.model.response.MovieReviewResponse
@@ -12,7 +12,7 @@ import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
-import retrofit2.converter.moshi.MoshiConverterFactory
+import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
 import retrofit2.http.Path
 import retrofit2.http.QueryMap
@@ -24,7 +24,7 @@ interface ApiService {
     suspend fun getNowPlayingMovieAsync(@QueryMap hashMap: HashMap<String, String> = HashMap()): MovieListResponse
 
     @GET("3/movie/{movie_id}")
-    suspend fun getMovieAsync(@QueryMap hashMap: HashMap<String, String> = HashMap()): Movie
+    suspend fun getMovieAsync(@Path("movie_id") movieId: String): Movie
 
     @GET("3/movie/{movie_id}/reviews")
     suspend fun getMovieReviewsAsync(@Path("movie_id") movieId: String): MovieReviewResponse
@@ -33,14 +33,17 @@ interface ApiService {
     suspend fun getMovieCreditsAsync(@Path("movie_id") movieId: String): MovieCreditResponse
 
     @GET("3/movie/{movie_id}/similar")
-    suspend fun getMovieSimilarAsync(@QueryMap hashMap: HashMap<String, String> = HashMap()): SimilarMovieListResponse
+    suspend fun getMovieSimilarAsync(
+        @Path("movie_id") movieId: String,
+        @QueryMap hashMap: HashMap<String, String> = HashMap()
+    ): SimilarMovieListResponse
 }
 
 object ApiParams {
     const val PAGE = "page"
 }
 
-object APIClient{
+object APIClient {
     const val TIMEOUT = 30
 
     fun createOkHttpCache(context: Context): Cache =
@@ -80,8 +83,14 @@ object APIClient{
         okHttpClient: OkHttpClient
     ): Retrofit =
         Retrofit.Builder()
-            .addConverterFactory(MoshiConverterFactory.create())
             .baseUrl(BuildConfig.BASE_URL)
+            .addConverterFactory(GsonConverterFactory.create())
             .client(okHttpClient)
             .build()
+
+    fun createApiService(retrofit: Retrofit, mockApi: MockApi, mock: Mock): ApiService =
+        if (mock.isMock) mockApi
+        else retrofit.create(ApiService::class.java)
 }
+
+class Mock(val isMock: Boolean)

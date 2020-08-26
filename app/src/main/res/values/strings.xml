@@ -6,4 +6,10 @@
     <string name="unknown_error">Error, please try again later</string>
 
     <string name="ok">OK</string>
+    <string name="summary">Summary</string>
+    <string name="similar_movie">Similar Movies</string>
+    <string name="reviews">Reviews</string>
+    <string name="credits">Credits</string>
+    <string name="query_hint">Search movie name</string>
+    <string name="recently_searched">Recently searched</string>
 </resources>

@@ -4,12 +4,12 @@ import androidx.recyclerview.widget.DiffUtil
 import com.droidplusplus.moviedbapp.R
 import com.droidplusplus.moviedbapp.data.model.Movie
 import com.droidplusplus.moviedbapp.databinding.ItemMovieRowBinding
-import com.droidplusplus.moviedbapp.ui.base.BaseListAdapter
+import com.droidplusplus.moviedbapp.ui.base.BasePagedListAdapter
 import com.droidplusplus.moviedbapp.utils.setSingleClick
 
-class MovieListAdapter(
+class PagedMovieAdapter(
     val itemClickListener: (Movie) -> Unit = {}
-) : BaseListAdapter<Movie, ItemMovieRowBinding>(object : DiffUtil.ItemCallback<Movie>() {
+) : BasePagedListAdapter<Movie, ItemMovieRowBinding>(object : DiffUtil.ItemCallback<Movie>() {
     override fun areItemsTheSame(oldItem: Movie, newItem: Movie): Boolean {
         return oldItem.id == newItem.id
     }
@@ -25,10 +25,8 @@ class MovieListAdapter(
 
     override fun bindFirstTime(binding: ItemMovieRowBinding) {
         binding.apply {
-            root.setSingleClick {
-                item?.apply {
-                    itemClickListener(this)
-                }
+            bookBtn.setSingleClick {
+                item?.apply(itemClickListener)
             }
         }
     }

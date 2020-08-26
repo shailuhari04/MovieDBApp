@@ -16,6 +16,7 @@ object Versions {
     const val androidxTest = "1.2.0"
     const val robolectric = "4.3.1"
     const val paging = "2.1.2"
+    const val gson = "2.8.6"
 }
 
 object BuildVersions {
@@ -44,7 +45,8 @@ object Libs {
     const val livedataKtx = "androidx.lifecycle:lifecycle-livedata-ktx:${Versions.lifecycle}"
     const val lifecycleRuntimeKtx = "androidx.lifecycle:lifecycle-runtime-ktx:${Versions.lifecycle}"
     const val retrofit = "com.squareup.retrofit2:retrofit:${Versions.retrofit}"
-    const val retrofitConverterMoshi = "com.squareup.retrofit2:converter-moshi:${Versions.retrofit}"
+    const val retrofitGson = "com.squareup.retrofit2:converter-gson:${Versions.retrofit}"
+    const val gson = "com.google.code.gson:gson:${Versions.gson}"
     const val loggingInterceptor = "com.squareup.okhttp3:logging-interceptor:${Versions.okhttp}"
     const val koinAndroid = "org.koin:koin-android:${Versions.koin}"
     const val koinViewmodel = "org.koin:koin-androidx-viewmodel:${Versions.koin}"

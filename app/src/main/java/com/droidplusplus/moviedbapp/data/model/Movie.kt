@@ -21,8 +21,11 @@ data class Movie(
 ) : Parcelable {
 
     fun getFullBackdropPath() = takeIf { backdrop_path.isNullOrBlank() }?.let { null }
-        ?: BuildConfig.SMALL_IMAGE_URL + backdrop_path
+        ?: BuildConfig.LARGE_IMAGE_URL + backdrop_path
 
     fun getFullPosterPath() = takeIf { poster_path.isNullOrBlank() }?.let { null }
         ?: BuildConfig.SMALL_IMAGE_URL + poster_path
+
+    fun release_dategetAvgVote() = vote_average?.takeIf { it > 0 }?.let { vote_average.toString() }
+        ?: ""
 }

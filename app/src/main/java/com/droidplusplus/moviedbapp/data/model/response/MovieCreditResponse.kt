@@ -24,7 +24,7 @@ data class Cast(
     val profile_path: String?
 ) : Parcelable {
 
-    fun getProfilePath() = takeIf { profile_path.isNullOrBlank() }?.let { null }
+    fun getFullProfilePath() = takeIf { profile_path.isNullOrBlank() }?.let { null }
         ?: BuildConfig.SMALL_IMAGE_URL + profile_path
 }
 
@@ -40,6 +40,6 @@ data class Crew(
     val profile_path: String?
 ) : Parcelable {
 
-    fun getProfilePath() = takeIf { profile_path.isNullOrBlank() }?.let { null }
+    fun getFullProfilePath() = takeIf { profile_path.isNullOrBlank() }?.let { null }
         ?: BuildConfig.SMALL_IMAGE_URL + profile_path
 }
